@@ -16,7 +16,7 @@ import kjistik.backend.Models.Grades;
 import kjistik.backend.Services.GradesService;
 @CrossOrigin
 @RestController
-@RequestMapping("/calificaciones")
+@RequestMapping("/api/calificaciones")
 public class GradesController {
 
     @Autowired

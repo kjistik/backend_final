@@ -17,7 +17,7 @@ import kjistik.backend.Services.TeachersService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/docentes")
+@RequestMapping("/api/docentes")
 public class TeacherController {
 
     @Autowired

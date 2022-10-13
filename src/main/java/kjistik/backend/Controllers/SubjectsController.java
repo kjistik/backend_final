@@ -16,7 +16,7 @@ import kjistik.backend.Models.Subjects;
 import kjistik.backend.Services.SubjectServiceImp;
 
 @RestController
-@RequestMapping("/materias")
+@RequestMapping("/api/materias")
 @CrossOrigin
 
 public class SubjectsController {

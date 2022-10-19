@@ -12,31 +12,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kjistik.backend.Models.Subjects;
-import kjistik.backend.Services.SubjectServiceImp;
+import kjistik.backend.Models.Study;
+import kjistik.backend.Services.StudyServiceImp;
 
 @RestController
 @RequestMapping("/api/materias")
 @CrossOrigin
 
-public class SubjectsController {
+public class StudyController {
 
     @Autowired
-    SubjectServiceImp service;
+    StudyServiceImp service;
 
     @GetMapping("/todos")
-    List<Subjects> all() {
+    List<Study> all() {
         return service.all();
 
     }
 
     @GetMapping("/uno/{id}")
-    Subjects one(@PathVariable Long id) {
+    Study one(@PathVariable Long id) {
         return service.one(id);
     }
 
     @PostMapping("/nuevo")
-    Subjects newSubject(@RequestBody Subjects newSubject) {
+    Study newSubject(@RequestBody Study newSubject) {
         return service.newSubject(newSubject);
     }
 /* 

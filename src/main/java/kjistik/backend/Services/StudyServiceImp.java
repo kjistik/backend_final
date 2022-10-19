@@ -5,28 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import kjistik.backend.Models.Subjects;
-import kjistik.backend.Repository.SubjectsRepository;
+import kjistik.backend.Models.Study;
+import kjistik.backend.Repository.StudyRepository;
 
 @Component
-public class SubjectServiceImp implements SubjectService {
+public class StudyServiceImp implements StudyService {
 
     @Autowired
-    SubjectsRepository repo;
+    StudyRepository repo;
 
     @Override
-    public List<Subjects> all() {
+    public List<Study> all() {
         return repo.findAll();
     }
 
     @Override
-    public Subjects one(Long id) {
+    public Study one(Long id) {
 
         return repo.findById(id).orElseThrow();
     }
 
     @Override
-    public Subjects newSubject(Subjects nuevo) {
+    public Study newSubject(Study nuevo) {
 
         return repo.save(nuevo);
     }

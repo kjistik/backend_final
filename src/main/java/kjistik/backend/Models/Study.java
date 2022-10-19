@@ -5,10 +5,11 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,42 +19,42 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-//many to one (grades)
-//many to many (subjects)
+//many to many (students)
+//one to many (teachers)
+//one to many (grades)
 
-@Entity(name = "students")
-@Table(name = "students")
+@Entity
+@Table(name = "subjects")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class Students {
-
+@Setter
+public class Study {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idStudent")
-    Long idStudent;
+    @Column(name = "idSubject")
 
-    @Column(name = "name")
-    String name;
+    Long idSubject;
 
-    @Column(name = "lastName")
-    String lastName;
-
-    @Column(name = "active")
-    boolean active;
+    @Column(name = "subject_name")
+    String study;
 
     @JsonBackReference
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idGrade", cascade = CascadeType.ALL)
-    List<Grades> gradesList;
+    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+    List<Grades> subject_grade;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "subject_teacher")
+    List<Teachers> subject_teacher;
 
     @JsonBackReference
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
-    }, mappedBy = "many")
-
-    List<Study> many;
-
+    })
+    @JoinTable(name = "student_subject", joinColumns = { @JoinColumn(name = "subjectId") }, inverseJoinColumns = {
+            @JoinColumn(name = "studentId") })
+    List<Students> many;
 }

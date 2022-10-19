@@ -35,7 +35,7 @@ public class TeachersServiceImp implements TeachersService {
                 .map(docente -> {
                     docente.setName(newDocente.getName());
                     docente.setLastName(newDocente.getLastName());
-                    docente.setSubject(newDocente.getSubject());
+                    docente.setSubject_teacher(newDocente.getSubject_teacher());
                     docente.setActive(newDocente.isActive());
                     return repo.save(docente);
                 })

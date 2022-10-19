@@ -3,9 +3,9 @@ package kjistik.backend.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import kjistik.backend.Models.Subjects;
+import kjistik.backend.Models.Study;
 
 @Repository
-public interface SubjectsRepository extends JpaRepository<Subjects, Long> {
+public interface StudyRepository extends JpaRepository<Study, Long> {
 
 }

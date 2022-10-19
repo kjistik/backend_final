@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 //many to one (students)
 
 @Table(name = "grades")
-@Entity(name="grades")
+@Entity(name = "grades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,15 +29,17 @@ public class Grades {
     @Column(name = "idGrade")
     long idGrade;
 
-    @ManyToOne
+    @ManyToOne 
     @JoinColumn(name = "grades_student")
     Students student;
 
-    @Column(name="grades_subject")
-    Long subject;
+    @ManyToOne
+    @JoinColumn(name = "grades_subject")
+    Study subject;
 
-    @Column(name="grades_teacher")
-    Long teacher;
+    @ManyToOne
+    @JoinColumn(name = "grades_teacher")
+    Teachers teacher;
 
     @Column(name = "grade")
     int grade;

@@ -12,7 +12,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
+//many to many (students)
+//one to many (teachers)
+//one to many (grades)
+
+@Entity 
 @Table(name = "subjects")
 @Data
 @NoArgsConstructor
@@ -24,6 +29,6 @@ public class Subjects {
     @Column(name = "idSubject")
     Long idSubject;
 
-    @Column(name = "subject")
+    @Column(name = "subject_name")
     String subject;
 }

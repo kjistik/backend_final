@@ -5,14 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//many to one (teachers)
+//many to one (subjects)
+//many to one (students)
+
 @Table(name = "grades")
-@Entity
+@Entity(name="grades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,13 +29,14 @@ public class Grades {
     @Column(name = "idGrade")
     long idGrade;
 
-    @Column(name = "studentId")
-    Long student;
+    @ManyToOne
+    @JoinColumn(name = "grades_student")
+    Students student;
 
-    @Column(name = "subjectId")
+    @Column(name="grades_subject")
     Long subject;
 
-    @Column(name = "teacher")
+    @Column(name="grades_teacher")
     Long teacher;
 
     @Column(name = "grade")

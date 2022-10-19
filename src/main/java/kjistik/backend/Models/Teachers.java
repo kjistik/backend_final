@@ -22,10 +22,10 @@ public class Teachers {
     @Column(name="idTeacher")
     Long idTeacher;
     
-    @Column(name="name")
+    @Column(name="nameTeacher")
     String name;
 
-    @Column(name="lastName")
+    @Column(name="lastNameTeacher")
     String lastName;
 
     @Column(name="subject")

@@ -16,7 +16,7 @@ import kjistik.backend.Models.Teachers;
 import kjistik.backend.Services.TeachersService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/api/docentes")
 public class TeacherController {
 

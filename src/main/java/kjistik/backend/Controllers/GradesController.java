@@ -14,8 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import kjistik.backend.Models.Grades;
 import kjistik.backend.Services.GradesService;
-@CrossOrigin
+
 @RestController
+@CrossOrigin(origins="http://localhost:4200")
 @RequestMapping("/api/calificaciones")
 public class GradesController {
 

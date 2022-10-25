@@ -38,8 +38,8 @@ public class StudentServiceImp implements StudentService {
 
         return repo.findById(id)
                 .map(alumno -> {
-                    alumno.setName(newAlumno.getName());
-                    alumno.setLastName(newAlumno.getLastName());
+                    alumno.setStudent_name(newAlumno.getStudent_name());
+                    alumno.setStudent_lastName(newAlumno.getStudent_lastName());
                     alumno.setActive(newAlumno.isActive());
                     return repo.save(alumno);
                 })

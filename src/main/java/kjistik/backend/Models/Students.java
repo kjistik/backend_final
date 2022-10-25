@@ -35,25 +35,25 @@ public class Students {
     @Column(name = "idStudent")
     Long idStudent;
 
-    @Column(name = "name")
-    String name;
+    @Column(name = "student_name")
+    String student_name;
 
-    @Column(name = "lastName")
-    String lastName;
+    @Column(name = "student_lastName")
+    String student_lastName;
 
     @Column(name = "active")
     boolean active;
 
-    @JsonBackReference
+    @JsonBackReference (value=("grades_list"))
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idGrade", cascade = CascadeType.ALL)
     List<Grades> gradesList;
 
-    @JsonBackReference
+    @JsonBackReference (value="many_students")
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     }, mappedBy = "many")
 
-    List<Study> many;
+    List<Subject> many;
 
 }

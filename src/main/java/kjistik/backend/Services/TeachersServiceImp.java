@@ -33,8 +33,8 @@ public class TeachersServiceImp implements TeachersService {
     public Teachers change(Teachers newDocente, Long id) {
         return repo.findById(id)
                 .map(docente -> {
-                    docente.setName(newDocente.getName());
-                    docente.setLastName(newDocente.getLastName());
+                    docente.setTeacher_name(newDocente.getTeacher_name());
+                    docente.setTeacher_lastName(newDocente.getTeacher_lastName());
                     docente.setSubject_teacher(newDocente.getSubject_teacher());
                     docente.setActive(newDocente.isActive());
                     return repo.save(docente);

@@ -31,29 +31,32 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
-public class Study {
+public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idSubject")
-
     Long idSubject;
 
     @Column(name = "subject_name")
-    String study;
+    String subject_name;
 
-    @JsonBackReference
-    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL)
+	@Column(name="active")
+	boolean active;
+
+    @JsonBackReference (value="subject_grade")
+    @OneToMany(mappedBy = "grades_subject", cascade = CascadeType.ALL)
     List<Grades> subject_grade;
 
-    @JsonBackReference
+    @JsonBackReference(value="subject_teacher")
     @OneToMany(mappedBy = "subject_teacher")
     List<Teachers> subject_teacher;
 
-    @JsonBackReference
+    @JsonBackReference(value="many_study")
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
+    
     @JoinTable(name = "student_subject", joinColumns = { @JoinColumn(name = "subjectId") }, inverseJoinColumns = {
             @JoinColumn(name = "studentId") })
     List<Students> many;

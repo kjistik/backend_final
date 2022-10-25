@@ -31,20 +31,20 @@ public class Teachers {
     @Column(name = "idTeacher")
     Long idTeacher;
 
-    @Column(name = "nameTeacher")
-    String name;
+    @Column(name = "teacher_name")
+    String teacher_name;
 
-    @Column(name = "lastNameTeacher")
-    String lastName;
+    @Column(name = "teacher_lastName")
+    String teacher_lastName;
 
     @ManyToOne
     @JoinColumn(name = "subject_teacher")
-    Study subject_teacher;
+    Subject subject_teacher;
 
     @Column(name = "active")
     boolean active;
 
-    @JsonBackReference
+    @JsonBackReference (value="teachers_list")
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "idTeacher", cascade = CascadeType.ALL)
     List<Teachers> teachersList;
 

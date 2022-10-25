@@ -29,17 +29,17 @@ public class Grades {
     @Column(name = "idGrade")
     long idGrade;
 
-    @ManyToOne 
+    @ManyToOne
     @JoinColumn(name = "grades_student")
-    Students student;
+    Students grades_student;
 
     @ManyToOne
     @JoinColumn(name = "grades_subject")
-    Study subject;
+    Subject grades_subject;
 
     @ManyToOne
     @JoinColumn(name = "grades_teacher")
-    Teachers teacher;
+    Teachers grades_teacher;
 
     @Column(name = "grade")
     int grade;

@@ -35,6 +35,7 @@ public class SubjectServiceImp implements SubjectService {
     public Subject Change(Subject newSubject, Long id) {
         return repo.findById(id)
                 .map(subject -> {
+                subject.setActive(newSubject.isActive());
                     subject.setSubject_name(newSubject.getSubject_name());
                     return subject;
                 })

@@ -42,7 +42,7 @@ public class SubjectController {
 
     @PutMapping("/cambiar/{id}")
     Subject change(@RequestBody Subject subject, @PathVariable Long id) {
-        return service.Change(subject, id);
+        return service.change(subject, id);
 
         /*
          * @DeleteMapping("/borrar/{id}")

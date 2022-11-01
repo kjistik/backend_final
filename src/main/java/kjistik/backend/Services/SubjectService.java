@@ -11,7 +11,7 @@ public interface SubjectService {
 
     Subject newSubject(Subject nuevo);
 
-    Subject Change(Subject subject, Long id);
+    Subject change(Subject subject, Long id);
 
     //void delete(Long id);
 }

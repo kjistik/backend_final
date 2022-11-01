@@ -32,12 +32,12 @@ public class SubjectServiceImp implements SubjectService {
     }
 
     @Override
-    public Subject Change(Subject newSubject, Long id) {
+    public Subject change(Subject newSubject, Long id) {
         return repo.findById(id)
                 .map(subject -> {
-                subject.setActive(newSubject.isActive());
+                    subject.setActive(newSubject.isActive());
                     subject.setSubject_name(newSubject.getSubject_name());
-                    return subject;
+                    return repo.save(subject);
                 })
                 .orElseGet(() -> {
                     newSubject.setIdSubject(id);

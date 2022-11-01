@@ -37,11 +37,11 @@ public class Subject {
     @Column(name = "idSubject")
     Long idSubject;
 
+    @Column(name="active")
+	boolean active;
+
     @Column(name = "subject_name")
     String subject_name;
-
-	@Column(name="active")
-	boolean active;
 
     @JsonBackReference (value="subject_grade")
     @OneToMany(mappedBy = "grades_subject", cascade = CascadeType.ALL)

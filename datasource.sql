@@ -20,7 +20,6 @@ CREATE TABLE `grades` (
     `idGrade` bigint(20) NOT NULL,
     `grade` int(11) DEFAULT NULL,
     `grades_student` bigint(20) DEFAULT NULL,
-    `grades_subject` bigint(20) DEFAULT NULL,
     `grades_teacher` bigint(20) DEFAULT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
@@ -33,15 +32,6 @@ CREATE TABLE `students` (
     `active` bit(1) DEFAULT NULL,
     `student_lastName` varchar(255) DEFAULT NULL,
     `student_name` varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
-
--- --------------------------------------------------------
---
--- Table structure for table `student_subject`
---
-CREATE TABLE `student_subject` (
-    `subjectId` bigint(20) NOT NULL,
-    `studentId` bigint(20) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 -- --------------------------------------------------------
@@ -79,8 +69,6 @@ ADD
 ADD
     KEY `FKep0phspdqb45s9i4sw39ns3ln` (`grades_student`),
 ADD
-    KEY `FKh4wxxd8t6b1fu7av8dcb34ofx` (`grades_subject`),
-ADD
     KEY `FKjyatvwc8mdupi6f6aqqdmkjjw` (`grades_teacher`);
 
 --
@@ -90,16 +78,6 @@ ALTER TABLE
     `students`
 ADD
     PRIMARY KEY (`idStudent`);
-
---
--- Indexes for table `student_subject`
---
-ALTER TABLE
-    `student_subject`
-ADD
-    KEY `FKm3sdsqg8146yemc1sbl0k3e44` (`studentId`),
-ADD
-    KEY `FKhq9am616tognuns4co27r68vc` (`subjectId`);
 
 --
 -- Indexes for table `subjects`
@@ -165,19 +143,7 @@ ALTER TABLE
 ADD
     CONSTRAINT `FKep0phspdqb45s9i4sw39ns3ln` FOREIGN KEY (`grades_student`) REFERENCES `students` (`idStudent`),
 ADD
-    CONSTRAINT `FKh4wxxd8t6b1fu7av8dcb34ofx` FOREIGN KEY (`grades_subject`) REFERENCES `subjects` (`idSubject`),
-ADD
     CONSTRAINT `FKjyatvwc8mdupi6f6aqqdmkjjw` FOREIGN KEY (`grades_teacher`) REFERENCES `teachers` (`idTeacher`);
-
---
--- Constraints for table `student_subject`
---
-ALTER TABLE
-    `student_subject`
-ADD
-    CONSTRAINT `FKhq9am616tognuns4co27r68vc` FOREIGN KEY (`subjectId`) REFERENCES `subjects` (`idSubject`),
-ADD
-    CONSTRAINT `FKm3sdsqg8146yemc1sbl0k3e44` FOREIGN KEY (`studentId`) REFERENCES `students` (`idStudent`);
 
 --
 -- Constraints for table `teachers`
@@ -222,121 +188,121 @@ values
 INSERT INTO
     `grades`
 VALUES
-    (1, 9, 1000, 1, 1003);
+    (1, 9, 1000, 1003);
 
 INSERT INTO
     `grades`
 VALUES
-    (2, 7, 1000, 3, 1000);
+    (2, 7, 1000, 1000);
 
 INSERT INTO
     `grades`
 VALUES
-    (3, 8, 1000, 2, 1005);
+    (3, 8, 1000, 1005);
 
 INSERT INTO
     `grades`
 VALUES
-    (4, 8, 1000, 4, 1006);
+    (4, 8, 1000, 1006);
 
 INSERT INTO
     `grades`
 VALUES
-    (5, 8, 1001, 1, 1002);
+    (5, 8, 1001, 1002);
 
 INSERT INTO
     `grades`
 VALUES
-    (6, 4, 1001, 2, 1004);
+    (6, 4, 1001, 1004);
 
 INSERT INTO
     `grades`
 VALUES
-    (7, 10, 1001, 3, 1001);
+    (7, 10, 1001, 1001);
 
 INSERT INTO
     `grades`
 VALUES
-    (8, 5, 1001, 4, 1006);
+    (8, 5, 1001, 1006);
 
 INSERT INTO
     `grades`
 VALUES
-    (9, 4, 1002, 1, 1003);
+    (9, 4, 1002, 1003);
 
 INSERT INTO
     `grades`
 VALUES
-    (10, 7, 1002, 2, 1005);
+    (10, 7, 1002, 1005);
 
 INSERT INTO
     `grades`
 VALUES
-    (11, 10, 1002, 3, 1000);
+    (11, 10, 1002 1000);
 
 INSERT INTO
     `grades`
 VALUES
-    (12, 3, 1002, 4, 1006);
+    (12, 3, 1002, 1006);
 
 INSERT INTO
     `grades`
 VALUES
-    (13, 9, 1003, 1, 1002);
+    (13, 9, 1003, 1002);
 
 INSERT INTO
     `grades`
 VALUES
-    (14, 6, 1003, 2, 1004);
+    (14, 6, 1003, 1004);
 
 INSERT INTO
     `grades`
 VALUES
-    (15, 1, 1003, 3, 1001);
+    (15, 1, 1003, 1001);
 
 INSERT INTO
     `grades`
 VALUES
-    (16, 1, 1003, 4, 1006);
+    (16, 1, 1003, 1006);
 
 INSERT INTO
     `grades`
 VALUES
-    (17, 4, 1004, 1, 1003);
+    (17, 4, 1004, 1003);
 
 INSERT INTO
     `grades`
 VALUES
-    (18, 9, 1004, 2, 1004);
+    (18, 9, 1004, 1004);
 
 INSERT INTO
     `grades`
 VALUES
-    (19, 6, 1004, 3, 1001);
+    (19, 6, 1004, 1001);
 
 INSERT INTO
     `grades`
 VALUES
-    (20, 4, 1004, 4, 1006);
+    (20, 4, 1004, 1006);
 
 INSERT INTO
     `grades`
 VALUES
-    (21, 10, 1005, 1, 1003);
+    (21, 10, 1005, 1003);
 
 INSERT INTO
     `grades`
 VALUES
-    (22, 2, 1005, 2, 1004);
+    (22, 2, 1005, 1004);
 
 INSERT INTO
     `grades`
 VALUES
-    (23, 7, 1005, 3, 1001);
+    (23, 7, 1005, 1001);
 
 INSERT INTO
     `grades`
 VALUES
-    (24, 3, 1005, 4, 1006);
+    (24, 3, 1005, 1006);
 
 COMMIT;

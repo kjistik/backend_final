@@ -1,4 +1,4 @@
-package kjistik.backend.Services;
+package kjistik.backend.Services.Students;
 
 import java.util.List;
 

@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//relaciones con otras entidades
 //many to one (teachers)
 //many to one (subjects)
 //many to one (students)
@@ -28,6 +29,8 @@ public class Grades {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idGrade")
     long idGrade;
+
+    // la anotación @JoinColumn indica que esta columna compartirá información con otra tabla
 
     @ManyToOne
     @JoinColumn(name = "grades_student")

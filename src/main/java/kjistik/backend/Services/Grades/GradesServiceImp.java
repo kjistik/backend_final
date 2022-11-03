@@ -1,4 +1,4 @@
-package kjistik.backend.Services;
+package kjistik.backend.Services.Grades;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ public class GradesServiceImp implements GradesService {
 
     @Override
     public List<Grades> all() {
-        return (List<Grades>) repo.findAll();
+        return repo.findAll();
     }
 
     @Override
@@ -31,23 +31,23 @@ public class GradesServiceImp implements GradesService {
         return repo.save(nuevo);
     }
 
-    /*
-     * @Override
-     * public Grades Change(Grades newGrade, Long id) {
-     * 
-     * return repo.findById(id)
-     * .map(grade -> {
-     * grade.setGrade(newGrade.getGrade());
-     * grade.setStudent(newGrade.getStudent());
-     * grade.setSubject(newGrade.getSubject());
-     * return repo.save(grade);
-     * })
-     * .orElseGet(() -> {
-     * newGrade.setIdGrade(id);
-     * return repo.save(newGrade);
-     * });
-     * }
-     */
+    @Override
+      public Grades Change(Grades newGrade, Long id) {
+      
+      return repo.findById(id)
+      .map(grade -> {
+      grade.setGrade(newGrade.getGrade());
+      grade.setGrades_student(newGrade.getGrades_student());
+      grade.setGrades_subject(newGrade.getGrades_subject());
+      grade.setGrades_teacher(newGrade.getGrades_teacher());
+      return repo.save(grade);
+      })
+      .orElseGet(() -> {
+      newGrade.setIdGrade(id);
+      return repo.save(newGrade);
+      });
+      }
+
     @Override
     public void delete(Long id) {
         repo.deleteById(id);

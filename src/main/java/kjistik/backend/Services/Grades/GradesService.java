@@ -1,4 +1,4 @@
-package kjistik.backend.Services;
+package kjistik.backend.Services.Grades;
 
 import java.util.List;
 
@@ -12,8 +12,7 @@ public interface GradesService {
 
     Grades newGrade(Grades nuevo);
 
-    /*
-     * Grades Change(Grades grade, Long id);
-     */
+    Grades Change(Grades grade, Long id);
+
     void delete(Long id);
 }

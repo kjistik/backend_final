@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kjistik.backend.Models.Subject;
-import kjistik.backend.Services.SubjectServiceImp;
+import kjistik.backend.Services.Subjects.SubjectServiceImp;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

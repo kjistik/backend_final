@@ -1,4 +1,4 @@
-package kjistik.backend.Services;
+package kjistik.backend.Services.Students;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class StudentServiceImp implements StudentService {
 
     @Override
     public List<Students> all() {
-        return (List<Students>) repo.findAll();
+        return repo.findAll();
     }
 
     @Override

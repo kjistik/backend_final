@@ -44,11 +44,14 @@ public class Students {
     @Column(name = "active")
     boolean active;
 
-    @JsonBackReference (value=("grades_list"))
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "idGrade", cascade = CascadeType.ALL)
+    // La anotacion @OneToMany indica que esta propiedad es parte de una relación de
+    // uno a mucho. Indica qué campo de una clase ajena va a mapearlo.
+
+    @JsonBackReference(value = ("grades_list"))
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "grades_student", cascade = CascadeType.ALL)
     List<Grades> gradesList;
 
-    @JsonBackReference (value="many_students")
+    @JsonBackReference(value = "many_students")
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE

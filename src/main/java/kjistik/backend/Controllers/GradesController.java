@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kjistik.backend.Models.Grades;
-import kjistik.backend.Services.GradesService;
+import kjistik.backend.Services.Grades.GradesService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")

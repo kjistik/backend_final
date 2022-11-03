@@ -21,6 +21,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+//relaciones con otras entidades
 //many to many (students)
 //one to many (teachers)
 //one to many (grades)
@@ -37,26 +38,26 @@ public class Subject {
     @Column(name = "idSubject")
     Long idSubject;
 
-    @Column(name="active")
-	boolean active;
+    @Column(name = "active")
+    boolean active;
 
     @Column(name = "subject_name")
     String subject_name;
 
-    @JsonBackReference (value="subject_grade")
+    @JsonBackReference(value = "subject_grade")
     @OneToMany(mappedBy = "grades_subject", cascade = CascadeType.ALL)
     List<Grades> subject_grade;
 
-    @JsonBackReference(value="subject_teacher")
+    @JsonBackReference(value = "subject_teacher")
     @OneToMany(mappedBy = "subject_teacher")
     List<Teachers> subject_teacher;
 
-    @JsonBackReference(value="many_study")
+    @JsonBackReference(value = "many_study")
     @ManyToMany(cascade = {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    
+
     @JoinTable(name = "student_subject", joinColumns = { @JoinColumn(name = "subjectId") }, inverseJoinColumns = {
             @JoinColumn(name = "studentId") })
     List<Students> many;

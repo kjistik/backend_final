@@ -15,7 +15,6 @@ import lombok.NoArgsConstructor;
 
 //relaciones con otras entidades
 //many to one (teachers)
-//many to one (subjects)
 //many to one (students)
 
 @Table(name = "grades")
@@ -36,9 +35,6 @@ public class Grades {
     @JoinColumn(name = "grades_student")
     Students grades_student;
 
-    @ManyToOne
-    @JoinColumn(name = "grades_subject")
-    Subject grades_subject;
 
     @ManyToOne
     @JoinColumn(name = "grades_teacher")

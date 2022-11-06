@@ -38,7 +38,6 @@ public class GradesServiceImp implements GradesService {
       .map(grade -> {
       grade.setGrade(newGrade.getGrade());
       grade.setGrades_student(newGrade.getGrades_student());
-      grade.setGrades_subject(newGrade.getGrades_subject());
       grade.setGrades_teacher(newGrade.getGrades_teacher());
       return repo.save(grade);
       })

@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -50,13 +49,5 @@ public class Students {
     @JsonBackReference(value = ("grades_list"))
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "grades_student", cascade = CascadeType.ALL)
     List<Grades> gradesList;
-
-    @JsonBackReference(value = "many_students")
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    }, mappedBy = "many")
-
-    List<Subject> many;
 
 }

@@ -238,7 +238,7 @@ VALUES
 INSERT INTO
     `grades`
 VALUES
-    (11, 10, 1002 1000);
+    (11, 10, 1002, 1000);
 
 INSERT INTO
     `grades`
